@@ -1,29 +1,40 @@
 import React from "react";
 import {
-	Appbar,
-	toolbar,
+	AppBar,
+	Toolbar,
 	IconButton,
 	Badge,
 	MenuItem,
 	Menu,
 	Typography,
-	Toolbar,
 } from "@material-ui/core";
 import { ShoppingCart } from "material-ul/icons";
-import { CallMissedSharp } from "@material-ui/icons";
+import useStyles from "./styles";
 
 const Navbar = () => {
+	const classes = useStyles();
 	return (
 		<>
-			<Appbar
-				position="fixed"
-				className={CallMissedSharp.appbar}
-				color="inherit"
-			>
+			<AppBar position="fixed" className={classes.appBar} color="inherit">
 				<Toolbar>
-					<Typography></Typography>
+					<Typography varient="h6" className={classes.title} color="inherit">
+						<img
+							src=""
+							alt="Commerce.js"
+							height="25px"
+							className={classes.image}
+						/>
+					</Typography>
+					<div className={classes.grow} />
+					<div className={classes.button}>
+						<IconButton aria-label="Show cart items" color="inherit">
+							<Badge badgeContent={2} color="secondary">
+								<ShoppingCart />
+							</Badge>
+						</IconButton>
+					</div>
 				</Toolbar>
-			</Appbar>
+			</AppBar>
 		</>
 	);
 };
